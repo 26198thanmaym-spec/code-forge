@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CodeForge Dev Posts</title>
+  <link rel="stylesheet" href="devpost.css">
+</head>
+<body>
+
+<header class="top-bar">
+  <div class="logo">
+    <img src="/images/logo-square.png" alt="CodeForge Logo" class="logo-img">
+    <span>CodeForge</span>
+  </div>
+  <div class="top-right">
+    <button id="themeToggle">🌙 / ☀️</button>
+  </div>
+</header>
+
+<main class="feed-container">
+
+  <!-- Post input -->
+  <div class="post-box">
+    <textarea id="postInput" placeholder="Share your dev update..."></textarea>
+    <div class="post-controls">
+      <input type="file" id="fileAttach" style="display:none;">
+      <button id="attachBtn">📎</button>
+      <button id="sendBtn">Send</button>
+    </div>
+  </div>
+
+  <!-- Posts feed -->
+  <div id="postsFeed" class="posts-feed"></div>
+
+</main>
+
+<script src="devpost.js"></script>
+</body>
+</html>

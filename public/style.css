@@ -1,0 +1,135 @@
+/* --- Global --- */
+body {
+  margin: 0;
+  font-family: 'Roboto Mono', monospace;
+  background: linear-gradient(135deg, #8118cc, #00ffff);
+  color: white;
+}
+
+a {
+  color: #40e0d0;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* --- Header / Hero --- */
+header.hero {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+header.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  text-shadow: 0 0 10px #00ffff, 0 0 20px #6a0dad;
+}
+
+header.hero p {
+  font-size: 1.2rem;
+  color: #e0e0e0;
+}
+
+.hero-buttons {
+  margin-top: 30px;
+}
+
+.btn {
+  padding: 15px 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 10px;
+  transition: transform 0.2s;
+}
+
+.btn-login {
+  background-color: black;
+  color: white;
+}
+
+.btn-login:hover {
+  transform: scale(1.05);
+}
+
+.btn-signup {
+  background-color: #40e0d0;
+  color: white;
+}
+
+.btn-signup:hover {
+  transform: scale(1.05);
+}
+
+/* --- Sections --- */
+.section {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+}
+
+.section h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  text-decoration: underline;
+}
+
+.section p {
+  line-height: 1.6;
+}
+
+/* --- Auth boxes (login/signup) --- */
+.auth-box {
+  max-width: 400px;
+  margin: 80px auto;
+  padding: 40px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  text-align: center;
+}
+
+.auth-box input {
+  width: 80%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 10px;
+  border: none;
+}
+
+.auth-link {
+  margin-top: 15px;
+  font-size: 0.9rem;
+}
+
+/* --- Footer --- */
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+  color: #c0c0c0;
+}
+
+/* --- Dashboard textarea & select (optional for future) --- */
+textarea {
+  width: 90%;
+  height: 200px;
+  margin: 20px auto;
+  display: block;
+  border-radius: 10px;
+  padding: 10px;
+  font-family: monospace;
+  font-size: 1rem;
+}
+
+select {
+  margin: 10px auto;
+  display: block;
+  padding: 10px;
+  border-radius: 10px;
+}

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Choose Your Plan – CodeForge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      background: linear-gradient(135deg, #00f0ff, #7f00ff);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .pricing-container {
+      width: 90%;
+      max-width: 1100px;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px #000;
+    }
+
+    .plans {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .plan {
+      background: rgba(0,0,0,0.35);
+      border-radius: 16px;
+      padding: 30px 20px;
+      position: relative;
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .plan:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 0 30px #00f0ff;
+    }
+
+    .plan.elite {
+      border: 2px solid #ff00ff;
+    }
+
+    .circle {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      border: 2px solid white;
+      margin: 0 auto 15px;
+      cursor: pointer;
+    }
+
+    .circle.selected {
+      background: #00f0ff;
+      box-shadow: 0 0 12px #00f0ff;
+    }
+
+    .plan h2 {
+      margin: 10px 0;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0;
+      text-align: left;
+      font-size: 14px;
+    }
+
+    ul li {
+      margin-bottom: 8px;
+    }
+
+    .choose-btn {
+      margin-top: 15px;
+      padding: 10px 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      background: #00f0ff;
+      color: black;
+      opacity: 0.6;
+    }
+
+    .choose-btn.enabled {
+      opacity: 1;
+      cursor: pointer;
+    }
+
+    @media (max-width: 900px) {
+      .plans {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="pricing-container">
+    <h1>Choose Your CodeForge Plan</h1>
+
+    <div class="plans">
+
+      <!-- FREE -->
+      <div class="plan">
+        <div class="circle" data-plan="free"></div>
+        <h2>Forge Starter</h2>
+        <ul>
+          <li>❌ No Dev Post</li>
+          <li>✅ 3 Programming Features</li>
+          <li>❌ No Templates</li>
+          <li>❌ No Custom Placeholders</li>
+        </ul>
+        <button class="choose-btn" data-plan="free">Choose Free</button>
+      </div>
+
+      <!-- PRO -->
+      <div class="plan">
+        <div class="circle" data-plan="pro"></div>
+        <h2>Forge Plus</h2>
+        <ul>
+          <li>✅ Dev Post Access</li>
+          <li>✅ 4 Programming Features</li>
+          <li>❌ No Custom Templates</li>
+          <li>❌ No Custom Placeholders</li>
+        </ul>
+        <button class="choose-btn" data-plan="pro">Choose Plus</button>
+      </div>
+
+      <!-- ELITE -->
+      <div class="plan elite">
+        <div class="circle" data-plan="elite"></div>
+        <h2>Forge Elite</h2>
+        <ul>
+          <li>✅ Full Dev Post</li>
+          <li>✅ All Programming Features</li>
+          <li>✅ 5 Post Templates</li>
+          <li>✅ 5 Custom Placeholders</li>
+        </ul>
+        <button class="choose-btn" data-plan="elite">Choose Elite</button>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    let selectedPlan = null;
+
+    const circles = document.querySelectorAll(".circle");
+    const buttons = document.querySelectorAll(".choose-btn");
+
+    circles.forEach(circle => {
+      circle.addEventListener("click", () => {
+        circles.forEach(c => c.classList.remove("selected"));
+        buttons.forEach(b => b.classList.remove("enabled"));
+
+        circle.classList.add("selected");
+        selectedPlan = circle.dataset.plan;
+
+        document.querySelector(`.choose-btn[data-plan="${selectedPlan}"]`)
+          .classList.add("enabled");
+      });
+    });
+
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        if (!btn.classList.contains("enabled")) return;
+
+        localStorage.setItem("userPlan", btn.dataset.plan);
+        window.location.href = "/dashboard/dashboard.html";
+      });
+    });
+  
+  // UI Logic
+    const featureList = document.getElementById("featureList");
+    const titleEl = document.getElementById("featureTitle");
+    const descEl = document.getElementById("featureDescription");
+    const previewEl = document.getElementById("generatedPreview");
+
+    function loadFeatures(lang) {
+      featureList.innerHTML = "";
+      FEATURES[lang].forEach(f => {
+        const div = document.createElement("div");
+        div.className = "feature-item";
+        div.textContent = f.title;
+        div.onclick = () => {
+          titleEl.textContent = f.title;
+          descEl.textContent = f.desc;
+          previewEl.value = `This will generate:\n${f.title} code template`;
+        };
+        featureList.appendChild(div);
+      });
+    }
+
+    // Language switching
+    document.querySelectorAll(".lang-btn").forEach(btn => {
+      btn.onclick = () => {
+        document.querySelectorAll(".lang-btn").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        loadFeatures(btn.dataset.lang);
+      };
+    });
+
+    // Load default HTML features
+    loadFeatures("html");
+  </script>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

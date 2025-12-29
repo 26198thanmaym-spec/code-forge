@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Achievements - CodeForge</title>
+  <link rel="icon" href="/images/logo-square.png" type="image/png">
+  <link rel="stylesheet" href="dashboard.css">
+  <style>
+    /* Center everything and style title */
+    .tool-container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 20px;
+    }
+
+    .achievements-wrapper {
+      flex: 1;
+      max-width: 900px;
+      text-align: center;
+    }
+
+    .achievements-wrapper h1 {
+      font-size: 3rem;
+      font-weight: bold;
+      color: black;
+      margin-bottom: 10px;
+    }
+
+    .achievements-wrapper p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+
+    .achievements-grid {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      background: rgba(0,0,0,0.5);
+      border: 2px solid #0ff;
+      padding: 20px;
+      border-radius: 10px;
+      width: 220px;
+      text-align: center;
+    }
+
+    .badge h3 {
+      margin: 0 0 10px 0;
+      color: #0ff;
+      font-size: 1.4rem;
+    }
+
+    .badge p {
+      margin: 0 0 10px 0;
+    }
+
+    .badge span {
+      font-weight: bold;
+      color: #73fc5b;
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- TOP BAR -->
+  <header class="top-bar">
+    <div class="logo">
+      <img src="/images/logo-square.png" alt="CodeForge Logo" class="logo-img">
+      <span>CodeForge</span>
+    </div>
+    <div class="top-right">
+      <button onclick="window.location.href='dashboard.html'" class="menu-btn">Back</button>
+    </div>
+  </header>
+
+  <!-- ACHIEVEMENTS SECTION -->
+  <div class="tool-container">
+    <div class="achievements-wrapper">
+      <h1>Achievements</h1>
+      <p>Earn badges and 🧩 as you complete features!</p>
+
+      <div class="achievements-grid">
+        <div class="badge">
+          <h3>HTML Master</h3>
+          <p>Completed 5 HTML features</p>
+          <span>+50 🧩</span>
+        </div>
+        <div class="badge">
+          <h3>Python Pro</h3>
+          <p>Completed 5 Python features</p>
+          <span>+50 🧩</span>
+        </div>
+        <div class="badge">
+          <h3>JavaScript Ninja</h3>
+          <p>Completed 5 JS features</p>
+          <span>+50 🧩</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>

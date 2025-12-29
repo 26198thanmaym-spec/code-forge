@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CodeForge Dashboard</title>
+  <link rel="icon" href="/images/logo-square.png" type="image/png">
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <header class="top-bar">
+    <div class="logo">
+      <img src="/images/logo-square.png" alt="CodeForge Logo" class="logo-img">
+      <span>CodeForge</span>
+    </div>
+    <div class="top-right">
+       <span id="creditScore">0🧩</span> 
+      <button onclick="logout()">Logout</button>
+      <button onclick="openHelp()">📖 Help</button>
+      <button onclick="window.location.href='achievements.html'">🏆 Achievements</button>
+      <button onclick="window.location.href='/devpost/devpost.html'" class="menu-btn">Dev Post</button>
+    </div>
+  </header>
+
+  <!-- MAIN DASHBOARD -->
+  <div class="tool-container">
+
+    <!-- LEFT: LANGUAGE TABS -->
+    <div class="language-tabs">
+      <button class="lang-btn active" data-lang="html">HTML</button>
+      <button class="lang-btn" data-lang="python">Python</button>
+      <button class="lang-btn" data-lang="javascript">JavaScript</button>
+      <button class="lang-btn" data-lang="java">Java</button>
+      <button class="lang-btn" data-lang="cpp">C++</button>
+      <button class="lang-btn" data-lang="csharp">C#</button>
+      <button class="lang-btn" data-lang="rust">Rust</button>
+      <button class="lang-btn" data-lang="swift">Swift</button>
+      <button class="lang-btn" data-lang="sql">SQL</button>
+      <button class="lang-btn" data-lang="go">Go</button>
+      <button class="lang-btn" data-lang="kotlin">Kotlin</button>
+    </div>
+
+    <!-- MIDDLE: FEATURE LIST -->
+    <div class="feature-list" id="featureList"></div>
+
+    <!-- RIGHT: FEATURE OUTPUT / PREVIEW -->
+    <div class="feature-output">
+      <h3 id="featureTitle">Select a feature</h3>
+      <p id="featureDescription">Feature details will appear here.</p>
+
+      <!-- INPUT textarea -->
+      <textarea id="answerInput" placeholder="Type here..."></textarea>
+
+      <button class="generate-btn">Generate / Answer</button>
+
+      <!-- OUTPUT textarea -->
+      <textarea id="answerOutput" placeholder="Output will appear here..." readonly></textarea>
+
+      <!-- ACHIEVEMENTS TAB (hidden by default) -->
+      <div id="achievementsTab" class="page"></div>
+    </div>
+
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>
