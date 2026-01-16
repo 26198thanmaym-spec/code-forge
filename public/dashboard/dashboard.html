@@ -15,7 +15,7 @@
       <span>CodeForge</span>
     </div>
     <div class="top-right">
-       <span id="creditScore">0🧩</span> 
+      <span id="creditScore">0🧩</span>
       <button onclick="logout()">Logout</button>
       <button onclick="openHelp()">📖 Help</button>
       <button onclick="window.location.href='achievements.html'">🏆 Achievements</button>
@@ -42,7 +42,9 @@
     </div>
 
     <!-- MIDDLE: FEATURE LIST -->
-    <div class="feature-list" id="featureList"></div>
+    <div class="feature-list" id="featureList">
+      <!-- JS will populate features here -->
+    </div>
 
     <!-- RIGHT: FEATURE OUTPUT / PREVIEW -->
     <div class="feature-output">
@@ -52,17 +54,18 @@
       <!-- INPUT textarea -->
       <textarea id="answerInput" placeholder="Type here..."></textarea>
 
-      <button class="generate-btn">Generate / Answer</button>
+      <button id="generateBtn" class="generate-btn">Generate / Answer</button>
 
       <!-- OUTPUT textarea -->
       <textarea id="answerOutput" placeholder="Output will appear here..." readonly></textarea>
 
-      <!-- ACHIEVEMENTS TAB (hidden by default) -->
+      <!-- ACHIEVEMENTS TAB -->
       <div id="achievementsTab" class="page"></div>
     </div>
 
   </div>
 
+  <!-- Link to external JS -->
   <script src="dashboard.js"></script>
 </body>
 </html>

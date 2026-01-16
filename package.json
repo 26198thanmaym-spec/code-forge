@@ -12,8 +12,18 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "body-parser": "^2.2.1",
+    "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
     "express-session": "^1.18.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/26198thanmaym-spec/code-forge.git"
+  },
+  "bugs": {
+    "url": "https://github.com/26198thanmaym-spec/code-forge/issues"
+  },
+  "homepage": "https://github.com/26198thanmaym-spec/code-forge#readme"
 }
